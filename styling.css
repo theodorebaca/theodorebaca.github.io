@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Georgia", "Times New Roman";
+    font-size: 13px;
+    color: #BDBDBD;
+    background: #800000;
+}
+
+* {
+    margin: 0 auto 0 auto;
+    text-align: left;
+}
+
+#page {
+    display: block;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    width: 670px;
+}
+
+.topNaviagationLink {
+    text-align: center;
+    position: relative;
+    margin-top: 30px;
+    font-size: 20px;
+    margin-left: -10px;
+    width: 121px;
+    height: 35px;
+    line-height: 35px;
+    float: left;
+    color: #BDBDBD;
+    font-family: "Times New Roman";
+}
+
+.topNaviagationLink a {
+    text-decoration: none;
+    color: #BDBDBD;
+}
+
+#mainPicture {
+    width: 670px;
+    height: 500px;
+    background-color: #000000;
+}
+
+#mainPicture .picture {
+    background-image: url(homepagepicture.jpg);
+    max-width: 100%;
+    max-height: 100%;
+    width: 650px;
+    height: 480px;
+    margin: 10px;
+    float: left;
+}
+
+#banner {
+    width: 670px;
+    height: 100px;
+    background-color: #000000;
+}
+
+#headerTitle {
+    position: relative;
+    top: 30px;
+    left: 40px;
+    font-size: 25px;
+    color: #0000006;
+    font-family: "Times New Roman";
+}
+
+#headerSubtext {
+    position: relative;
+    top: 30px;
+    left: 50px;
+    font-size: 14px;
+    color: #800000;
+    font-family: "Times New Roman";
+}
+
+.contentBox {
+    width: 670px;
+    height: auto;
+    background-color: #000000;
+    margin-top: 10px;
+}
+
+.contentBox .innerBox {
+    position: relative;
+    width: 647px;
+    height: auto;
+    top: 10px;
+    margin-left: 10px;
+    padding-bottom: 35px;
+}
+
+.contentTitle {
+    font-size: 19px;
+    margin-bottom: 0px;
+    padding-top: 18px;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+.contentText {
+    font-size: 13px;
+    line-height: 24px;
+    margin-left: 13px;
+    margin-right: 13px;
+}
+
+.collectionBox {
+    max-width: 100%;
+    max-height: 100%;
+    width: 650px;
+    height: 340px;
+    font-size: 13px;
+    line-height: 24px;
+    margin-left: 13px;
+    margin-right: 13px;
+}
+
+#footer {
+    width: 670px;
+    height: 16px;
+    font-size: 9px;
+    font-family: Arial;
+    color: #BDBDBD;
+    padding-top: 5px;
+    text-align: center;
+}
