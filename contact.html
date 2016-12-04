@@ -13,8 +13,9 @@
             $('#submit').click(function() {
                 var name = $('#name').val();
                 var email = $('#email').val();
+                var message = $('#message').val();
                 if (name != null) {
-                    var varData = 'name=' + name + '&email=' + email;
+                    var varData = '&name=' + name + '&email=' + email + '&message' + message;
                     console.log(varData);
                     $.ajax({
                         type: "POST",
@@ -60,7 +61,10 @@
                 <br />
                 <input type="text" name="email" id="email" />
                 <label for="email">Email</label>
-                <div id="submit" style="background-color:#ffffff;">Click to submit</div>
+                <br />
+                <input type="text" name="message" id="message" />
+                <label for="message">Message</label>
+                <div id="submit" style="background-color:#ffffff;"><button type="button">Click to send</button></div>
             </div>
             
             <br />
