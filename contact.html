@@ -1,97 +1,79 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Simple Ajax Contact Form</title>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-    $("#submit_btn").click(function() { 
-       
-	    var proceed = true;
-        //simple validation at client's end
-        //loop through each field and we simply change border color to red for invalid fields		
-		$("#contact_form input[required=true], #contact_form textarea[required=true]").each(function(){
-			$(this).css('border-color',''); 
-			if(!$.trim($(this).val())){ //if this field is empty 
-				$(this).css('border-color','red'); //change border color to red   
-				proceed = false; //set do not proceed flag
-			}
-			//check invalid email
-			var email_reg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/; 
-			if($(this).attr("type")=="email" && !email_reg.test($.trim($(this).val()))){
-				$(this).css('border-color','red'); //change border color to red   
-				proceed = false; //set do not proceed flag				
-			}	
-		});
-       
-        if(proceed) //everything looks good! proceed...
-        {
-			//get input field values data to be sent to server
-            post_data = {
-				'user_name'		: $('input[name=name]').val(), 
-				'user_email'	: $('input[name=email]').val(), 
-				'country_code'	: $('input[name=phone1]').val(), 
-				'phone_number'	: $('input[name=phone2]').val(), 
-				'subject'		: $('select[name=subject]').val(), 
-				'msg'			: $('textarea[name=message]').val()
-			};
-            
-            //Ajax post data to server
-            $.post('contact_me.php', post_data, function(response){  
-				if(response.type == 'error'){ //load json data from server and output message     
-					output = '<div class="error">'+response.text+'</div>';
-				}else{
-				    output = '<div class="success">'+response.text+'</div>';
-					//reset values in all input fields
-					$("#contact_form  input[required=true], #contact_form textarea[required=true]").val(''); 
-					$("#contact_form #contact_body").slideUp(); //hide form after success
-				}
-				$("#contact_form #contact_results").hide().html(output).slideDown();
-            }, 'json');
-        }
-    });
-    
-    //reset previously set border colors and hide all message on .keyup()
-    $("#contact_form  input[required=true], #contact_form textarea[required=true]").keyup(function() { 
-        $(this).css('border-color',''); 
-        $("#result").slideUp();
-    });
-});
-</script>
-<link href="style.css" rel="stylesheet" type="text/css" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="normalize.css" />
+    <link rel="stylesheet" type="text/css" href="styling.css" />
+    <title>Theodore Baca Website</title>
+
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#submit').click(function() {
+                var name = $('#name').val();
+                var email = $('#email').val();
+                if (name != null) {
+                    var varData = 'name=' + name + '&email=' + email;
+                    console.log(varData);
+                    $.ajax({
+                        type: "POST",
+                        url: 'php.php',
+                        data: varData,
+                        success: function() {
+                            alert("It was successful");
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
-<div class="form-style" id="contact_form">
-    <div class="form-style-heading">Please Contact Us</div>
-    <div id="contact_results"></div>
-    <div id="contact_body">
-        <label><span>Name <span class="required">*</span></span>
-            <input type="text" name="name" id="name" required="true" class="input-field"/>
-        </label>
-        <label><span>Email <span class="required">*</span></span>
-            <input type="email" name="email" required="true" class="input-field"/>
-        </label>
-        <label><span>Phone</span>
-            <input type="text" name="phone1" maxlength="4" placeholder="+91"  required="true" class="tel-number-field"/>&mdash;<input type="text" name="phone2" maxlength="15"  required="true" class="tel-number-field long" />
-        </label>
-            <label for="subject"><span>Regarding</span>
-            <select name="subject" class="select-field">
-            <option value="General Question">General Question</option>
-            <option value="Advertise">Advertisement</option>
-            <option value="Partnership">Partnership Oppertunity</option>
-            </select>
-        </label>
-        <label for="field5"><span>Message <span class="required">*</span></span>
-            <textarea name="message" id="message" class="textarea-field" required="true"></textarea>
-        </label>
-        <label>
-            <span>&nbsp;</span><input type="submit" id="submit_btn" value="Submit" />
-        </label>
-    </div>
-</div>
 
+    <div id="page">
+        <div class="topNaviagationLink"><a href="home.html">Home</a></div>
+        <div class="topNaviagationLink"><a href="about.html">About Me</a></div>
+        <div class="topNaviagationLink"><a href="collection.html">Collection</a></div>
+        <div class="topNaviagationLink"><a href="contact.html">Contact</a></div>
+    </div>
+    <div id="banner">
+        <div id="headerTitle">Theodore Baca</div>
+        <div id="headerSubtext">Guitars</div>
+    </div>
+    <div class="contentBox">
+        <div class="innerBox">
+            <div class="contentTitle">Contact Me</div>
+            <br /> 
+            <div class="contentText">
+                <p>Please feel free to send me an email with any questions you may have. I am always willing to discuss music with fellow musicians or give advice to anyone who is interested 
+                in learning or collecting. I don't frequently check my email, so please give me 3-5 days to get back to you. </p>
+            </div>
+            
+            <br />
+            
+            <div id="contactbox">
+                <input type="text" name="name" id="name" />
+                <label for="name">Name</label>
+                <br />
+                <input type="text" name="email" id="email" />
+                <label for="email">Email</label>
+                <div id="submit"><button type="button">Click to submit!</button></div>
+            </div>
+            
+            <br />
+            <br />
+            
+            <img src="contactpageimage.jpg" align="bottom">
+
+        </div>
+    </div>
+
+    </div>
+    <div id="footer">
+        <p>All Images Taken by Theodore Baca</p>
+    </div>
 </body>
+
 </html>
