@@ -6,25 +6,22 @@
     <link rel="stylesheet" type="text/css" href="styling.css" />
     <title>Theodore Baca Website</title>
 
-
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('#submit').click(function() {
                 var name = $('#name').val();
                 var email = $('#email').val();
-                if (name != null) {
-                    var varData = 'name=' + name + '&email=' + email;
-                    console.log(varData);
-                    $.ajax({
-                        type: "POST",
-                        url: 'php.php',
-                        data: varData,
-                        success: function() {
-                            alert("It was successful");
-                        }
-                    });
-                }
+                var varData = 'name=' + name + '&email=' + email;
+                console.log(varData);
+                $.ajax({
+                    type: "POST",
+                    url: 'php.php',
+                    data: varData,
+                    success: function() {
+                        alert("It was a success");
+                    }
+                });
             });
         });
     </script>
@@ -59,7 +56,7 @@
                 <br />
                 <input type="text" name="email" id="email" />
                 <label for="email">Email</label>
-                <div id="submit" style="background-color:#ffffff;">Click to submit</div>
+                <div id="submit" style="background-color:#ffffff;">Click me to submit</div>
             </div>
             
             <br />
