@@ -20,8 +20,9 @@
                         };               
                 
                 if (name != null) {
+                    console.log('ajax about to run');
+
                     $.ajax({
-                        console.log('ajax working);
                         type: "POST",
                         url: "php.php",
                         data: data,
@@ -35,9 +36,7 @@
         });
     </script>
 </head>
-
 <body>
-
     <div id="page">
         <div class="topNaviagationLink"><a href="home.html">Home</a></div>
         <div class="topNaviagationLink"><a href="about.html">About Me</a></div>
@@ -72,14 +71,11 @@
             <br />
             
             <img src="contactpageimage.jpg" align="bottom">
-
         </div>
     </div>
-
     </div>
     <div id="footer">
         <p>All Images Taken by Theodore Baca</p>
     </div>
 </body>
-
 </html>
