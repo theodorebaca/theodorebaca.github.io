@@ -2,6 +2,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="normalize.css" />
     <link rel="stylesheet" type="text/css" href="styling.css" />
     <title>Theodore Baca Website</title>
 
@@ -9,15 +10,9 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-
-
             $('#submit').click(function() {
-
-
-
                 var name = $('#name').val();
                 var email = $('#email').val();
-
                 var varData = 'name=' + name + '&email=' + email;
                 console.log(varData);
 
@@ -28,12 +23,8 @@
                     success: function() {
                         alert("It was a success");
                     }
-
                 });
-
             });
-
-
         });
     </script>
 </head>
@@ -69,15 +60,11 @@
                 <br />
                 <input type="text" name="email" id="email" />
                 <label for="email">Email</label>
-
-                <div id="submit" style="background-color:#ffffff;">Click me to submit</div>
-
+                <div id="submit"><button type="button">Click to submit the email!</button></div>
 
             </div>
-
             <br />
             <br />
-
             <img src="contactpageimage.jpg" align="bottom">
 
 
