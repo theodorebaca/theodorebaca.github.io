@@ -5,14 +5,22 @@
     <link rel="stylesheet" type="text/css" href="styling.css" />
     <title>Theodore Baca Website</title>
 
+
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
+
+
             $('#submit').click(function() {
+
+
+
                 var name = $('#name').val();
                 var email = $('#email').val();
+
                 var varData = 'name=' + name + '&email=' + email;
                 console.log(varData);
+
                 $.ajax({
                     type: "POST",
                     url: 'php.php',
@@ -20,8 +28,12 @@
                     success: function() {
                         alert("It was a success");
                     }
+
                 });
+
             });
+
+
         });
     </script>
 </head>
@@ -29,7 +41,7 @@
 <body>
 
     <div id="page">
-        <div class="topNaviagationLink"><a href="index.html">Home</a></div>
+        <div class="topNaviagationLink"><a href="home.html">Home</a></div>
         <div class="topNaviagationLink"><a href="about.html">About Me</a></div>
         <div class="topNaviagationLink"><a href="collection.html">Collection</a></div>
         <div class="topNaviagationLink"><a href="contact.html">Contact</a></div>
@@ -41,26 +53,30 @@
     <div class="contentBox">
         <div class="innerBox">
             <div class="contentTitle">Contact Me</div>
-            <br /> 
-            <div class="contentText">
-                <p>Please feel free to send me an email with any questions you may have. I am always willing to discuss music with fellow musicians or give advice to anyone who is interested 
-                in learning or collecting. I don't frequently check my email, so please give me 3-5 days to get back to you. </p>
-            </div>
-            
             <br />
-            
+            <div class="contentText">
+                <p>Please feel free to send me an email with any questions you may have. I am always willing to discuss music with fellow musicians or give advice to anyone who is interested in learning or collecting. I don't frequently check my email, so
+                    please give me 3-5 days to get back to you. </p>
+            </div>
+
+            <br />
+
             <div id="contactbox">
+
                 <input type="text" name="name" id="name" />
                 <label for="name">Name</label>
                 <br />
                 <input type="text" name="email" id="email" />
                 <label for="email">Email</label>
+
                 <div id="submit" style="background-color:#ffffff;">Click me to submit</div>
+
+
             </div>
-            
+
             <br />
             <br />
-            
+
             <img src="contactpageimage.jpg" align="bottom">
 
 
