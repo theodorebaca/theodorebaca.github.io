@@ -11,16 +11,22 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#submit').click(function() {
+                
                 var name = $('#name').val();
-                var email = $('#email').val();
+                
+                var data = {
+                     name: $("#name").val(),
+                     email: $("#email").val(),
+                        };               
+                
                 if (name != null) {
-                    var varData = 'name=' + name + '&email=' + email;
-                    console.log(varData);
                     $.ajax({
+                        console.log('ajax working);
                         type: "POST",
-                        url: 'php.php',
-                        data: varData,
+                        url: "php.php",
+                        data: data,
                         success: function() {
+                            $('.success').fadeIn(1000);
                             alert("It was successful");
                         }
                     });
